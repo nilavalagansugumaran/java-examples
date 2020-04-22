@@ -34,6 +34,11 @@ public class Person {
         this.age = age;
     }
 
+    public Person() {
+        this.name = "Unknown";
+        this.age = -10;
+    }
+
     public void saySomeThing() {
 
         if(age < 16) {

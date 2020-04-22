@@ -18,7 +18,10 @@ public class Lambdamain {
         stringLambda2.execute("This is my seconds string 11111111");
 
         // Passing object and invoking method
-        MyFunctionalInterface<Person> personLambda = p -> p.saySomeThing();
+        // Way 2 -
+        MyFunctionalInterface<Person> personLambda = Person::saySomeThing;
+        // Way 1 -
+        // MyFunctionalInterface<Person> personLambda = p -> p.saySomeThing();
         personLambda.execute(new Person("my son", 11));
         personLambda.execute(new Person("Nila", 17));
 
@@ -54,6 +57,17 @@ public class Lambdamain {
                 "is nila is older then his dad "
                         + personComapreLambda.executeOther(
                                 new Person("Nila", 17), new Person("my dad", 65)));
+
+
+        //Invoking constructors
+        ConstructorExampleInterface exampleInterface = Person::new;
+        System.out.println("Default " + exampleInterface.getPerson());
+
+
+        ConstructorWithParameterExampleInterface exampleInterfaceWithParams = Person::new;
+        System.out.println("Actual " + exampleInterfaceWithParams.getPersonObjFor("Someone", 55));
+
+
     }
 }
 //
