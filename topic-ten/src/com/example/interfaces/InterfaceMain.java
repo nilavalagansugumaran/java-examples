@@ -23,6 +23,21 @@ public class InterfaceMain {
         MyInterface1 in11 = new Myclass3();
         in11.method1();
         in11.method1(2,3);
+
+        //Anonymous classes
+        MyInterface1 inx = new MyInterface1() {
+
+            @Override
+            public void method1() {
+                // provide implementation
+            };
+
+            @Override
+            public void method1(int param1, int param2) {// provide implementation
+            } ;
+
+        };
+        inx.method1(20,30);
     }
 }
 
@@ -31,6 +46,17 @@ interface MyInterface1 {
     void method1();
     void method1(int param1, int param2) ;
 }
+
+//Marker interface  - no method
+interface MyMarkerInterface {
+}
+
+//Functional interface - single method
+@FunctionalInterface
+interface MyFunctionalInterface {
+    void doSomething();
+}
+
 
 interface MyInterface2 {
     void method2();

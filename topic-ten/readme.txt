@@ -93,3 +93,7 @@ class Myclass3 implements MyInterface3 {
 	void method13() {// provide implementation}
 	void method13(param1, param2) {// provide implementation}
 }
+
+// Marker interface - no methods in it
+// Functional interface - has only one method
+// Anonymous class - just-in-time implementation class for an interface, no class or separate java files
