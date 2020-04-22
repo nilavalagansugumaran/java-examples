@@ -58,18 +58,47 @@ public class Lambdamain {
                         + personComapreLambda.executeOther(
                                 new Person("Nila", 17), new Person("my dad", 65)));
 
-
-        //Invoking constructors
+        // Invoking constructors
         ConstructorExampleInterface exampleInterface = Person::new;
         System.out.println("Default " + exampleInterface.getPerson());
-
 
         ConstructorWithParameterExampleInterface exampleInterfaceWithParams = Person::new;
         System.out.println("Actual " + exampleInterfaceWithParams.getPersonObjFor("Someone", 55));
 
+        someTestOfPassingLambdaAsAParameter(
+                10,
+                20,
+                (a, b) -> {
+                    if (a > b) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
 
+        someTestOfPassingLambdaAsAParameter(
+                100,
+                50,
+                (a, b) -> {
+                    if (a > b) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+    }
+
+    private static <T> void someTestOfPassingLambdaAsAParameter(
+            T obj1, T obj2, MyOtherFunctionalInterface<T> functionalInterface) {
+
+        if (functionalInterface.executeOther(obj1, obj2)) {
+            System.out.println("Obj1 won");
+        } else {
+            System.out.println("Obj2 won");
+        }
     }
 }
+
 //
 // class MyClass<T> implements MyFunctionalInterface<T> {
 //    void execute(T a){
