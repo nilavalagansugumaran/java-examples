@@ -18,24 +18,39 @@ public class ExecutorsMain {
 //            executorsExample.runThreadsUsingSingleThreadPool(createRunnable());
 //        }
 
-        //Example 2
+        //Example 2 // Fixed thread pool example
 //        for(int i=0; i< 12; i++) {
 //            executorsExample.runThreadsUsingFixedThreadPool(createRunnable());
 //        }
 
-        //Example 3
+        //Example 3 // To return a value from thread
 //        for(int i=0; i< 12; i++) {
 //           System.out.println( "Date from threads " + executorsExample.runThreadsUsingFixedThreadPoolForCallables(createCallable()));
 //        }
 
-        List<Callable<Date>> callables = Arrays.asList(createCallable(),createCallable(),createCallable(),
-                createCallable(),createCallable(),createCallable());
+        //Example 4 // To batch submit
+//        List<Callable<Date>> callables = Arrays.asList(createCallable(),createCallable(),createCallable());
+//
+////        List<Date> dates = executorsExample.runThreadsUsingFixedThreadPoolForCallablesBatchProcessing(callables);
 
-        List<Date> dates = executorsExample.runThreadsUsingFixedThreadPoolForCallablesBatchProcessing(callables);
+        //Example 5 - USING FORK JOIN
+//        List<Callable<Date>> callables = Arrays.asList(createCallable(),createCallable(),createCallable());
+//        List<Date> dates = executorsExample.runThreadsUsingForkJoinForCallablesBatchProcessing(callables);
+//
+//        System.out.println( "Dates from threads " + dates );
 
-        System.out.println( "Dates from threads " + dates );
 
-                executorsExample.stopExecutors();
+        System.out.println( "Scheduling.. " );
+        //Example 6 -  Fixed thread pool example
+        //executorsExample.runSchedularAtFixeddelay(createRunnable());
+        //    executorsExample.runSchedularAtFixedRate(createRunnable());
+
+
+        //Example 7 -  synchronised block
+        executorsExample.callIncrement();
+       // executorsExample.callIncrementSync();
+
+        executorsExample.stopExecutors();
         System.out.println("Ending my application " + Thread.currentThread().getName());
     }
 
