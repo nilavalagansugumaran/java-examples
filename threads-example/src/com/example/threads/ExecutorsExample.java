@@ -1,8 +1,8 @@
 package com.example.threads;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.sql.Time;
+import java.util.Date;
+import java.util.concurrent.*;
 
 public class ExecutorsExample {
 
@@ -23,6 +23,22 @@ public class ExecutorsExample {
         fixedThreadPool.submit(task);
     }
 
+    public Date runThreadsUsingFixedThreadPoolForCallables(Callable<Date> task){
+
+        Future<Date> future = fixedThreadPool.submit(task);
+
+        System.out.println(ExecutorsMain.threadName() +" Is done ??? " + future.isDone());
+        try{
+            return future.get(1, TimeUnit.SECONDS);
+        } catch (InterruptedException | ExecutionException | TimeoutException ie) {
+
+            ie.printStackTrace();
+        }
+
+        return null;
+    }
+
+
 
     public void stopExecutors() {
         stopExec(singleThreadPool);
@@ -35,7 +51,7 @@ public class ExecutorsExample {
         try{
             System.out.println("Shutting down services");
             service.shutdown();
-            service.awaitTermination(3, TimeUnit.SECONDS);
+            service.awaitTermination(5, TimeUnit.SECONDS);
         } catch (InterruptedException ie) {
 
         } finally{

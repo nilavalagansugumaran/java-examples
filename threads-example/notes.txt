@@ -31,6 +31,7 @@ Runnable - interface
         Create thread obj and start the thread
 
 Callable - interface
+    To return values from completed threads
 
 Thread pool -
     Imagine as number of baskets
