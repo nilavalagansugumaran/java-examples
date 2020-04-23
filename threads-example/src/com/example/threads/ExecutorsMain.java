@@ -1,6 +1,8 @@
 package com.example.threads;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
@@ -11,20 +13,29 @@ public class ExecutorsMain {
         System.out.println("Starting my application " + Thread.currentThread().getName());
 
         ExecutorsExample executorsExample = new ExecutorsExample();
-
+        //Example 1
 //        for(int i=0; i<2; i++) {
 //            executorsExample.runThreadsUsingSingleThreadPool(createRunnable());
 //        }
 
+        //Example 2
 //        for(int i=0; i< 12; i++) {
 //            executorsExample.runThreadsUsingFixedThreadPool(createRunnable());
 //        }
 
-        for(int i=0; i< 12; i++) {
-           System.out.println( "Date from threads " + executorsExample.runThreadsUsingFixedThreadPoolForCallables(createCallable()));
-        }
+        //Example 3
+//        for(int i=0; i< 12; i++) {
+//           System.out.println( "Date from threads " + executorsExample.runThreadsUsingFixedThreadPoolForCallables(createCallable()));
+//        }
 
-        executorsExample.stopExecutors();
+        List<Callable<Date>> callables = Arrays.asList(createCallable(),createCallable(),createCallable(),
+                createCallable(),createCallable(),createCallable());
+
+        List<Date> dates = executorsExample.runThreadsUsingFixedThreadPoolForCallablesBatchProcessing(callables);
+
+        System.out.println( "Dates from threads " + dates );
+
+                executorsExample.stopExecutors();
         System.out.println("Ending my application " + Thread.currentThread().getName());
     }
 

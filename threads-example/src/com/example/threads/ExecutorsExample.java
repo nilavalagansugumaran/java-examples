@@ -2,7 +2,9 @@ package com.example.threads;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 public class ExecutorsExample {
 
@@ -38,6 +40,30 @@ public class ExecutorsExample {
         return null;
     }
 
+
+    public List<Date> runThreadsUsingFixedThreadPoolForCallablesBatchProcessing(List<Callable<Date>> task){
+
+        try{
+
+        List<Future<Date>> futures = fixedThreadPool.invokeAll(task);
+
+       return futures.parallelStream().map(f -> {
+           try{
+               return f.get(1, TimeUnit.SECONDS);
+           } catch (InterruptedException | ExecutionException | TimeoutException ie) {
+
+               ie.printStackTrace();
+           }
+            return null;
+        }).collect(Collectors.toList());
+
+        } catch (InterruptedException ie) {
+
+            ie.printStackTrace();
+        }
+
+        return null;
+    }
 
 
     public void stopExecutors() {
