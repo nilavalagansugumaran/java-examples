@@ -26,4 +26,23 @@ Threads - class
         Create new instance of your new Threads class and invoke start();
 
 Runnable - interface
+    To start a thread
+        provide impl for run() by placing your logic
+        Create thread obj and start the thread
+
 Callable - interface
+
+Thread pool -
+    Imagine as number of baskets
+    You can submit a task to an available from the thread pool
+
+
+ExecutorsService - Interface
+    to create and manage thread pools
+
+    SingleThread - thread pool always has only one thread
+    Fixedthreads - thread pool with specified number of threads
+    ForkjoinThreads (based on available threads in your system/machine)
+
+ScheduledExecutorsService - Interface
+    To run batch process

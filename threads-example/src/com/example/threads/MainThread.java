@@ -17,6 +17,7 @@ public class MainThread {
         simpleThreadsExample.startAThreadUsingRunnable();
 
 
+
         System.out.println("Current thread name is === " + Thread.currentThread().getName());
         System.out.println("Ending my application");
     }
@@ -33,4 +34,5 @@ public class MainThread {
 
         }
     }
+
 }
