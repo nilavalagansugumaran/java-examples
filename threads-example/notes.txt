@@ -1,0 +1,20 @@
+Process
+	- Application as one or a person
+	- Java application
+
+Threads
+	- Multiple tasks
+	- Tasks run by java application
+
+Start a jvm (java command) - starts a process
+Entry point encounters (public static void main) - Starts a Main thread
+
+Your application on main thread
+
+Tasks a sequential
+
+Within your process, you can start more threads
+
+
+Threads class helps you in dealing threads
+
