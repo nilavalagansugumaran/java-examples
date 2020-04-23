@@ -9,13 +9,20 @@ public class MainThread {
         System.out.println("Starting my application");
 
         System.out.println("Current thread name is === " + Thread.currentThread().getName());
+        sleep(5);
 
-        sleep(20);
+        SimpleThreadsExample simpleThreadsExample = new SimpleThreadsExample();
+        simpleThreadsExample.startAThreadUsingRunnable();
+        simpleThreadsExample.startAThreadUsingRunnable();
+        simpleThreadsExample.startAThreadUsingRunnable();
+
+
+        System.out.println("Current thread name is === " + Thread.currentThread().getName());
         System.out.println("Ending my application");
     }
 
     // to pause the current thread
-    private static void sleep(int seconds) {
+    public static void sleep(int seconds) {
 
         try{
 

@@ -18,3 +18,12 @@ Within your process, you can start more threads
 
 Threads class helps you in dealing threads
 
+Java provides below to start a new thread -
+Threads - class
+    To start a new thread
+        Extend Threads class
+        Override run() and put your logic there
+        Create new instance of your new Threads class and invoke start();
+
+Runnable - interface
+Callable - interface
