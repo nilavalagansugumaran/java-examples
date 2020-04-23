@@ -9,11 +9,14 @@ public class ExecutorsMain {
         System.out.println("Starting my application " + Thread.currentThread().getName());
 
         ExecutorsExample executorsExample = new ExecutorsExample();
-        executorsExample.runThreadsUsingSingleThreadPool(createRunnable());
-        executorsExample.runThreadsUsingSingleThreadPool(createRunnable());
-        executorsExample.runThreadsUsingSingleThreadPool(createRunnable());
-        executorsExample.runThreadsUsingSingleThreadPool(createRunnable());
-        executorsExample.runThreadsUsingSingleThreadPool(createRunnable());
+
+        for(int i=0; i<2; i++) {
+            executorsExample.runThreadsUsingSingleThreadPool(createRunnable());
+        }
+
+        for(int i=0; i< 12; i++) {
+            executorsExample.runThreadsUsingFixedThreadPool(createRunnable());
+        }
 
         executorsExample.stopExecutors();
         System.out.println("Ending my application " + Thread.currentThread().getName());

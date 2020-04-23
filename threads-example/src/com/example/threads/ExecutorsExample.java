@@ -7,19 +7,29 @@ import java.util.concurrent.TimeUnit;
 public class ExecutorsExample {
 
     private ExecutorService singleThreadPool;
+    private ExecutorService fixedThreadPool;
+
 
     public ExecutorsExample() {
         this.singleThreadPool = Executors.newSingleThreadExecutor();
+        this.fixedThreadPool = Executors.newFixedThreadPool(8);
     }
 
     public void runThreadsUsingSingleThreadPool(Runnable task){
         singleThreadPool.submit(task);
     }
 
-    public void stopExecutors() {
-        stopExec(singleThreadPool);
+    public void runThreadsUsingFixedThreadPool(Runnable task){
+        fixedThreadPool.submit(task);
     }
 
+
+    public void stopExecutors() {
+        stopExec(singleThreadPool);
+        stopExec(fixedThreadPool);
+    }
+
+    // You need this to shutdown the threads to exit your application
     private void stopExec(ExecutorService service) {
 
         try{
